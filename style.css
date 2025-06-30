@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #fceabb, #f8b500);
+  color: #333;
+  text-align: center;
+  padding: 2rem;
+  background: url('beach.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+}
+
+header, section, footer {
+  margin-bottom: 2rem;
+}
+
+.services {
+  padding: 2rem;
+}
+
+select, button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+button {
+  background-color: #00bfa6;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #009e88;
+}
+
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-top: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.about, .testimonials {
+  background: rgba(255, 153, 102, 0.3); /* orange tint */
+  padding: 1.5rem;
+  margin: 2rem auto;
+  width: 80%;
+  border-radius: 12px;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+
+.testimonials blockquote {
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  .profile-img {
+    width: 90px;
+    height: 90px;
+  }
+
+  select, button {
+    width: 90%;
+    font-size: 1rem;
+  }
+}
+.signup input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  width: 60%;
+  margin-top: 1rem;
+}
+
+.signup button {
+  display: block;
+  margin: 1rem auto 0;
+}
