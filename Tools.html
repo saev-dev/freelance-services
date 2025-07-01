@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume Price Estimator</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h2>Resume Cost Estimator</h2>
+
+  <label for="words">Word Count:</label>
+  <input type="number" id="words" placeholder="Enter total words"><br><br>
+
+  <button onclick="calcCost()">Estimate</button>
+
+  <p id="output"></p>
+
+  <script>
+    function calcCost() {
+      const words = parseInt(document.getElementById('words').value);
+      if (isNaN(words) || words <= 0) {
+        document.getElementById('output').innerText = "Please enter a valid number.";
+        return;
+      }
+      const cost = words * 0.05; // RM0.05 per word
+      document.getElementById('output').innerText = `Estimated Cost: RM ${cost.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
