@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SAEV Dev Contact</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+<body>
+<h2>Contact Me</h2>
+  <div>
+    <button onclick="setLang('en')">English</button>
+    <button onclick="setLang('my')">BM</button>
+    <button onclick="setLang('zh')">中文</button>
+  </div>
+<form id="contactForm">
+<input type="text" name="name" placeholder="Your Name" required><br><br>
+<input type="email" name="email" placeholder="Your Email" required><br><br>
+<textarea name="message" placeholder="Your Message" required></textarea><br><br>
+<button type="submit">Send</button>
+</form>
+
+<p id="responseMsg"></p>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', async (e) => {
+e.preventDefault();
+const data = {
+name: e.target.name.value,
+email: e.target.email.value,
+message: e.target.message.value
+};
+
+const res = await fetch('/contact', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify(data)
+});
+
+const result = await res.json();
+document.getElementById('responseMsg').innerText = result.message;
+});
+</script>
+  <script>
+    const translations = {
+      en: {
+        title: "Contact Me",
+        placeholderName: "Your Name",
+        placeholderEmail: "Your Email",
+        placeholderMsg: "Your Message",
+        btnText: "Send"
+      },
+      my: {
+        title: "Hubungi Saya",
+        placeholderName: "Nama Anda",
+        placeholderEmail: "E-mel Anda",
+        placeholderMsg: "Mesej Anda",
+        btnText: "Hantar"
+      },
+      zh: {
+        title: "联系我",
+        placeholderName: "你的名字",
+        placeholderEmail: "你的邮箱",
+        placeholderMsg: "你的留言",
+        btnText: "发送"
+      }
+    };
+
+    function setLang(lang) {
+      document.querySelector("h2").innerText = translations[lang].title;
+      const form = document.forms["contactForm"];
+      form.name.placeholder = translations[lang].placeholderName;
+      form.email.placeholder = translations[lang].placeholderEmail;
+      form.message.placeholder = translations[lang].placeholderMsg;
+      form.querySelector("button").innerText = translations[lang].btnText;
+    }
+  </script>
+</body>
+</html>
+<a href="/tools"><button>🧮 Resume Estimator Tool</button></a>
